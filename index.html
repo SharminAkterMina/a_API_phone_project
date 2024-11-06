@@ -8,31 +8,56 @@
     <script src="https://cdn.tailwindcss.com"></script> 
 
 </head>
-<body>
+<body class="">
     <header class="my-7">
         <h2 class="text-3xl text-center">A Phone Hunter Website using API JSON</h2>
 
     </header>
 
-    <main>
-        <section>
+    <main class="container mx-auto">
+
+      <h2 class="text-3xl text-center my-8">Search Your Phone</h2>
+      <!-- search box -->
+       <section class="px-3 bg-gray-300 my-3 ">
+        <input id="search-field" type="text" placeholder="Search" class="input input-bordered w-full max-w-xs my-5" />
+        <button onclick="handleSearch()" id="search-button" class="btn btn-primary">Search</button>
+       </section>
+
+       
+        <section class="">
+
+            <!-- loading spinner -->
+            <div id="loading-spinnar"  class="text-center my-16 hidden">
+                <span  class="loading loading-spinner loading-md "></span>
+
+            </div>
+
+            <!-- phone cards -->
             <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                <!-- <div class="card bg-base-100 w-96 shadow-xl">
-                    <figure>
-                      <img
-                        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                        alt="Shoes" />
-                    </figure>
-                    <div class="card-body">
-                      <h2 class="card-title">Shoes!</h2>
-                      <p>If a dog chews shoes whose shoes does he choose?</p>
-                      <div class="card-actions justify-end">
-                        <button class="btn btn-primary">Buy Now</button>
-                      </div>
-                    </div>
-                  </div> -->
+                
+            </div>
+
+            <!-- show all phones -->
+            <div id="show-all-phones" class="hidden my-5 text-center ">
+                <button onclick="showAllButton()" class="btn btn-primary ">Show All</button>
             </div>
         </section>
+
+        <!-- phone details modal -->
+        <dialog id="show_details_modal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+        <h3 id="modal_phone_name" class="text-lg font-bold">Hello!</h3>
+        <div id="show-modal-details">
+
+        </div>
+        <div class="modal-action">
+        <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+        </form>
+        </div>
+        </div>
+        </dialog>
 
     </main>
     
@@ -42,5 +67,5 @@
 
 
     <script src="js/phone.js"></script>
-</body>
+   
 </html>
